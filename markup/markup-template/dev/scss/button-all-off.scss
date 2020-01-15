@@ -1,0 +1,87 @@
+.button-all-off {
+	position: fixed;
+	bottom: 30px;
+	left: 0;
+	color: #fff;
+	z-index: 999;
+	label {
+		display: inline-block;
+		text-transform: uppercase;
+		cursor: pointer;
+		text-align: left;
+		font-size: 12px;
+	}
+	input {
+		display: none;
+	}
+}
+.button-all-off__icon {
+	cursor: pointer;
+	pointer-events: none;
+}
+.button-all-off__icon:before, .button-all-off__icon:after {
+	content: "";
+	position: absolute;
+	top: 45%;
+	left: 35%;
+	transition: 0.2s ease-out;
+}
+.button-all-off--aava {
+	label {
+		height: 20px;
+		line-height: 20px;
+		transition: all 0.2s;
+		&:before {
+			content: attr(data-on-text);
+		}
+		&:after {
+			content: attr(data-off-text);
+		}
+	}
+	input[type=checkbox] {
+		& + label {
+			width: 35px;
+			background: #FF5335;
+			&:before {
+				opacity: 0;
+				transform: translate(0, 20px);
+			}
+			&:after {
+				opacity: 1;
+				transform: translate(0, 0);
+			}
+		}
+	}
+	input[type=checkbox]:checked {
+		& ~ label {
+			width: 35px;
+			background: #61B136;
+			&:before {
+				opacity: 1;
+				transform: translate(0, 0);
+			}
+			&:after {
+				opacity: 0;
+				transform: translate(0, -20px);
+			}
+		}
+		& ~ .button-all-off__icon {
+			&:before {
+				transform: translate(-10%, 100%) rotate(45deg);
+				width: 16.66667px;
+			}
+			&:after {
+				transform: translate(30%) rotate(-45deg);
+			}
+		}
+	}
+
+}
+.button-all-off--aava label:before,
+.button-all-off--aava label:after {
+	position: absolute;
+	right: 0px;
+	width: 100%;
+	text-align: center;
+	transition: all 0.2s .1s ease-out;
+}

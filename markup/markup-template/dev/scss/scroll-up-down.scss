@@ -1,0 +1,45 @@
+// #scroll-up-plugins
+.scroll-up-plugins {
+	position: fixed;
+	z-index: 999;
+	top: calc(50% - 45px);
+	top: 50%;
+	right: 15px;
+	transform: translateY(-50%);
+	&__button {
+		opacity: 0.6;
+		background: #aaa;
+		color: #000;
+		cursor: pointer;
+		width: 30px;
+		height: 30px;
+		z-index: 999;
+		line-height: 30px;
+		text-align: center;
+		transition: all ease 0.3s;
+		margin-bottom: 5px;
+		&:hover {
+			border-radius: 30%;
+			opacity: 1;
+		}
+		&:before {
+				font-size: 14px;
+				display: block;
+			}
+		&--25 {
+			&:before {
+				content: '25';
+			}
+		}
+		&--50 {
+			&:before {
+				content: '50';
+			}
+		}
+		&--75 {
+			&:before {
+				content: '75';
+			}
+		}
+	}
+}

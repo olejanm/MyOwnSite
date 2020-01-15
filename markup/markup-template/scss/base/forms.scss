@@ -1,0 +1,117 @@
+// forms
+form,
+fieldset {
+	margin: 0;
+	padding: 0;
+	border-style: none;
+}
+
+select {
+	border-radius: 0;
+}
+
+input[type='text'],
+input[type='tel'],
+input[type='email'],
+input[type='search'],
+input[type='password'],
+input[type='url'],
+// input[type='date'],
+textarea {
+	// $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
+	@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-radius, $btn-border-width, $btn-line-height);
+	//color button mixin $background | $color | $border | $hover-background | $hover-color | $hover-border
+	@include button-variant(#f1f1f1, #000, #f1f1f1, #f1f1f1);
+	text-align: left;
+	-webkit-appearance: none;
+	box-sizing: border-box;
+	outline-color: transparent;
+	border-style: solid;
+
+	@include placeholder {
+		color: #999;
+	}
+}
+
+textarea {
+	resize: none;
+	vertical-align: top;
+	width: 100%;
+	height: 250px;
+}
+
+/* button, */
+input[type='button'],
+input[type='reset'],
+// input[type='file'],
+input[type='submit'] {
+	// $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
+	@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-radius, $btn-border-width, $btn-line-height);
+	//color button mixin $background | $color | $border | $hover-background | $hover-color | $hover-border
+	@include button-variant($btn-bg-color, $white, $btn-bg-color);
+	border-style: solid;
+	-webkit-appearance: none;
+	cursor: pointer;
+	text-align: left;
+}
+
+// Contact Form 7
+.wpcf7-form {
+	input[type='text'],
+	input[type="email"],
+	input[type='tel'],
+	input[type='email'],
+	input[type='search'],
+	input[type='password'],
+	input[type='url'],
+	textarea {
+		// $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
+		@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-radius, $btn-border-width, $btn-line-height);
+		//color button mixin $background | $color | $border | $hover-background | $hover-color | $hover-border
+		@include button-variant(#f1f1f1, #000, #f1f1f1, #f1f1f1);
+		text-align: left;
+		text-transform: uppercase;
+		outline: none;
+
+		@include placeholder {
+			color: #000;
+		}
+	}
+	textarea {
+		height: 280px;
+		resize: none;
+		padding: 30px 30px;
+		outline: none;
+	}
+	.form-btn-block {
+		padding-top: 30px;
+		.wpcf7-submit {
+			// $btn-padding-y | $btn-padding-x | $btn-font-size | $btn-radius | $btn-border-width | $btn-line-height
+			@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-radius, $btn-border-width, $btn-line-height);
+			//color button mixin $background | $color | $border | $hover-background | $hover-color | $hover-border
+			@include button-variant($btn-bg-color, $white, $btn-bg-color);
+		}
+	}
+}
+
+//------------------- style #input #textarea
+// removes the icon in the search type field
+input[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
+
+// smoothly changing the transparency of the placeholder with focus for textarea and input and inheritance of font color
+textarea,
+input {
+	@include placeholder {
+		color: inherit;
+		opacity: 1;
+		transition: opacity 0.3s ease;
+	}
+	&:focus {
+		@include placeholder {
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+	}
+}
